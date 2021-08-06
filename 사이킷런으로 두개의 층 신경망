@@ -1,3 +1,17 @@
+#앞에서 만들었던거 사용함
+import numpy as np
+import matplotlib.pyplot as plt
+
+from sklearn.datasets import load_breast_cancer
+from sklearn.model_selection import train_test_split
+
+cancer = load_breast_cancer()
+x = cancer.data
+y = cancer.target
+x_train_all, x_test, y_train_all, y_test = train_test_split(x, y, stratify=y, test_size=0.2, random_state=42)
+x_train, x_val, y_train, y_val = train_test_split(x_train_all, y_train_all, stratify=y_train_all, test_size=0.2, random_state=42)
+
+print(x_train.shape, x_val.shape) #훈련 전 데이터의 크기를 확인하는 습관을 가지자.
 
 #사이킷런
 #사이킷런에는 분류작업을 위한 MLPClassifier, 회귀작업을 위한 MLPRegressor가 있음.
